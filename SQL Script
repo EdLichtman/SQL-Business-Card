@@ -1,0 +1,13 @@
+CREATE PROCEDURE BusinessCard @Candidate VarChar(10) 
+AS
+BEGIN
+    SELECT   Info.FullName, Info.Position, Info.CellPhone, 
+             Info.PrimaryEmail, Web.WebAddress
+    FROM     ContactInformation Info, CandidateWebsites Web, 
+             CandidateToWebPage WebToPerson
+    WHERE    Info.PersonKey = @Candidate
+    AND      WebToPerson.PersonKey = Info.PersonKey
+    AND      WebToPerson.WebpageKey = Web.WebpageKey
+    ORDER BY Web.WebAddress
+END;
+EXECUTE BusinessCard '42'
