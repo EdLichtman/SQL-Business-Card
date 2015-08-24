@@ -1,0 +1,15 @@
+Create Table ContactInformation (
+  PersonKey VarChar(10) NOT NULL PRIMARY KEY,
+  FullName VarChar(50) ,
+  CellPhone VarChar(10),
+  PrimaryEmail VarChar(30),
+  Position VarChar(20)
+)
+Create Table CandidateWebsites (
+  WebpageKey VarChar(10) NOT NULL PRIMARY KEY,
+  WebAddress VarChar(200)
+)
+Create Table CandidateToWebPage (
+  WebpageKey VarChar(10),
+  PersonKey VarChar(10)
+)
